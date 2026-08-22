@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/HomelabManager.Agent/HomelabManager.Agent.csproj" />
+    <Project Path="src/HomelabManager.Api/HomelabManager.Api.csproj" />
+    <Project Path="src/HomelabManager.Core/HomelabManager.Core.csproj" />
+    <Project Path="src/HomelabManager.Infrastructure/HomelabManager.Infrastructure.csproj" />
+    <Project Path="src/HomelabManager.Web/HomelabManager.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HomelabManager.IntegrationTests/HomelabManager.IntegrationTests.csproj" />
+    <Project Path="tests/HomelabManager.UnitTests/HomelabManager.UnitTests.csproj" />
+  </Folder>
+</Solution>
