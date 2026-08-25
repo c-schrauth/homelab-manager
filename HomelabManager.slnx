@@ -2,6 +2,7 @@
   <Folder Name="/src/">
     <Project Path="src/HomelabManager.Agent/HomelabManager.Agent.csproj" />
     <Project Path="src/HomelabManager.Api/HomelabManager.Api.csproj" />
+    <Project Path="src/HomelabManager.Application/HomelabManager.Application.csproj" />
     <Project Path="src/HomelabManager.Core/HomelabManager.Core.csproj" />
     <Project Path="src/HomelabManager.Infrastructure/HomelabManager.Infrastructure.csproj" />
     <Project Path="src/HomelabManager.Web/HomelabManager.Web.csproj" />
