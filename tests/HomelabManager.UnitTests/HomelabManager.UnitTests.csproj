@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\HomelabManager.Core\HomelabManager.Core.csproj" />
+    <ProjectReference Include="..\..\src\HomelabManager.Infrastructure\HomelabManager.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\HomelabManager.Application\HomelabManager.Application.csproj" />
   </ItemGroup>
 
 </Project>

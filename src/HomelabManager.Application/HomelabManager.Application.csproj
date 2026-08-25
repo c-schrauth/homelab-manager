@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HomelabManager.Core\HomelabManager.Core.csproj" />
-    <ProjectReference Include="..\HomelabManager.Application\HomelabManager.Application.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
