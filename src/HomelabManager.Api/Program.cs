@@ -12,6 +12,12 @@ builder.Services.AddOpenApi();
 builder.Services.AddHttpClient<IHealthChecker, HttpHealthChecker>();
 builder.Services.AddSingleton<IServiceRepository, InMemoryServiceRepository>();
 builder.Services.AddScoped<CheckServiceHealth>();
+builder.Services.AddScoped<GetServices>();
+builder.Services.AddScoped<GetService>();
+builder.Services.AddScoped<CreateService>();
+builder.Services.AddScoped<UpdateService>();
+builder.Services.AddScoped<DeleteService>();
+
 // Add controllers to the container
 builder.Services.AddControllers();
 

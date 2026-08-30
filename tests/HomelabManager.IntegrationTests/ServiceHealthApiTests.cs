@@ -25,7 +25,7 @@ public sealed class ServiceHealthApiTests : IClassFixture<TestApplicationFactory
             Name = "Test Service",
             Endpoint = new Uri("https://test.example")
         };
-        _factory.ServiceRepository.Add(service);
+        await _factory.ServiceRepository.AddAsync(service);
 
         var response = await _client.GetAsync($"/api/services/{service.Id}/health");
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
