@@ -5,17 +5,48 @@ namespace HomelabManager.IntegrationTests.TestDoubles;
 
 public sealed class FakeServiceRepository : IServiceRepository
 {
-    private readonly Dictionary<Guid, Service> _services = new();
+    private readonly List<Service> _services = [];
 
-    public void Add(Service service)
+    public Task<IReadOnlyList<Service>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        _services[service.Id] = service;
+        IReadOnlyList<Service> services = _services.ToList();
+
+        return Task.FromResult(services);
+    }
+
+    public Task AddAsync(Service service, CancellationToken cancellationToken = default)
+    {
+        _services.Add(service);
+
+        return Task.CompletedTask;
     }
 
     public Task<Service?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        _services.TryGetValue(id, out var service);
+        var service = _services.FirstOrDefault(service => service.Id == id);
 
         return Task.FromResult(service);
+    }
+
+    public Task UpdateAsync(Service service, CancellationToken cancellationToken = default)
+    {
+        var index = _services.FindIndex(existing => existing.Id == service.Id);
+        
+        if (index >= 0)
+            _services[index] = service;
+
+        return Task.CompletedTask;
+    }
+
+    public Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        var service = _services.FirstOrDefault(service => service.Id == id);
+
+        if (service is null)
+            return Task.FromResult(false);
+        
+        _services.Remove(service);
+
+        return Task.FromResult(true);
     }
 }

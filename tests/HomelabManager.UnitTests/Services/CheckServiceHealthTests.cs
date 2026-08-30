@@ -67,12 +67,32 @@ public class CheckServiceHealthTests
             _service = service;
         }
 
+        public Task<IReadOnlyList<Service>> GetAllAsync(CancellationToken cancellationToken = default)
+        {
+            return Task.FromResult<IReadOnlyList<Service>>([]);
+        }
+
         public Task<Service?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             if (_service?.Id == id)
                 return Task.FromResult<Service?>(_service);
             
             return Task.FromResult<Service?>(null);
+        }
+
+        public Task AddAsync(Service service, CancellationToken cancellationToken = default)
+        {
+            return Task.CompletedTask;
+        }
+
+        public Task UpdateAsync(Service service, CancellationToken cancellationToken = default)
+        {
+            return Task.CompletedTask;
+        }
+
+        public Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            return Task.FromResult(false);
         }
     }
 
