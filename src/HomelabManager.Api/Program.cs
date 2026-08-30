@@ -1,7 +1,9 @@
 using HomelabManager.Application.Services;
 using HomelabManager.Core.Health;
 using HomelabManager.Infrastructure.Health;
+using HomelabManager.Infrastructure.Persistence;
 using HomelabManager.Infrastructure.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 // DI
+builder.Services.AddDbContext<ServiceDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("HomelabManager")));
 builder.Services.AddHttpClient<IHealthChecker, HttpHealthChecker>();
-builder.Services.AddSingleton<IServiceRepository, InMemoryServiceRepository>();
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<CheckServiceHealth>();
 builder.Services.AddScoped<GetServices>();
 builder.Services.AddScoped<GetService>();
